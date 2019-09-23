@@ -24,13 +24,10 @@
 	},
 	"config": {
 		"preferred-install": "dist",
-		"platform": {
-			"php": "5.5.12"
-		}
 	},
 	"require": {
 	"laravel/framework": "4.2.*",
-	"php": "5.5.*",
+	"php": "5.5.12",
 	"gloudemans/shoppingcart": "~1.2"
 },
 	"minimum-stability": "stable"
