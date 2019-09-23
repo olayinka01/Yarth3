@@ -1,0 +1,22 @@
+<center><img  src="<?php echo URL::asset('images/logo-mine.png'); ?>" /></center>
+
+<h2>Hi,</h2>
+ 
+<p style="font-size:18px;color:#799A05">We have received your Order, We will deliver to you soon...</p><br/>
+
+<p>Order Id : <?php echo $order_details->order_id; ?></p>
+<p style="font-size:18px;color:black">Orders: <br/> 
+
+<?php $i = 1; ?>
+ <?php foreach($full_details as $full_detail): ?>
+		  
+	<b><?php echo $i++; ?>.	 <?php echo $full_detail->art_name; ?> by <?php echo $full_detail->artist_name; ?> with customer code : </b> <br/>
+		  
+                               
+ <?php endforeach; ?>
+
+
+
+
+</p>
+<p style="font-size:16px;color:#799A05;margin-top:10%">Thanks for using Yarth</p>

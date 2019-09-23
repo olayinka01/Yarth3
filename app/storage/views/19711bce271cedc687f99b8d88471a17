@@ -1,0 +1,272 @@
+<?php $__env->startSection('title'); ?>
+Yarth: Artist-Upload Page
+<?php echo $__env->yieldContent('title'); ?>
+<?php $__env->stopSection(); ?>
+
+<?php $__env->startSection('header'); ?>
+	
+ <!-- LOADING -->
+	<div class="loading-container" id="loading">
+		<div class="loading-inner">
+			<span class="loading-1"></span>
+			<span class="loading-2"></span>
+			<span class="loading-3"></span>
+		</div>
+	</div>
+	<!-- END LOADING -->
+<div class="wrap-page ">
+    
+		<!-- HEADER -->
+		<header class="header _2">
+        
+			
+            <div class="container">
+
+				<!-- HEADER CONTENT -->
+				<div class="header-cn clearfix">
+
+				
+					<!-- LOGO -->
+					<div class="logo">
+						<a href="index"><img src="<?php echo URL::asset('images/logo-mine.png'); ?>" alt=""></a>
+					</div>
+					<!-- END LOGO -->
+                    
+                    <div style="color:#81c223;">
+                    <h1>ARTIST UPLOAD PAGE</h1>
+                    </div>
+                    
+				</div>
+				<!-- END HEADER CONTENT -->
+
+			</div>
+		</header>
+		<!-- END HEADER -->
+<?php $__env->stopSection(); ?>
+
+<?php $__env->startSection('body'); ?>
+
+<!-- BREAKCRUMB -->
+		<section class="breakcrumb">
+			<div class="container">
+				
+				<ul class="nav-breakcrumb">
+					<li><a href="<?php echo URL::to('artist.upload'); ?>">< Back to profile</a></li>
+					
+				</ul>
+
+			</div>
+		</section>
+		<!-- END BREAKCRUMB -->
+		
+        <!-- UPLOAD -->
+		<section class="blog">
+			<div class="container">
+				<div class="row">
+                	<div class="col-md-3 ">
+						
+						<!-- WIDGET CATEGORIES -->
+						<aside class="widget widget_categories ">
+							<h4 class="widget-title">ARTWORKS UPLOAD</h4>
+							
+                            <ul>
+								<li><a href="<?php echo URL::to('artist.upload'); ?>">Upload Artworks</a></li>
+                                <li><a href="<?php echo URL::to('logout'); ?>">Logout</a></li>
+								
+							</ul>
+						</aside>
+						<!-- END WIDGET CATEGORIES -->
+
+						<!-- WIDGET PHOTO SLIDE -->
+						<!--<aside class="widget widget_photo_slide">
+							<h4 class="widget-title">Photo Slider</h4>
+							<div class="photo-slide">
+								<div id="photo_slide">
+									<a href="#"><img src="images/blog/img-4.jpg" alt=""></a>
+									<a href="#"><img src="images/blog/img-4.jpg" alt=""></a>
+									<a href="#"><img src="images/blog/img-4.jpg" alt=""></a>
+									<a href="#"><img src="images/blog/img-4.jpg" alt=""></a>
+								</div>
+							</div>
+						</aside>-->
+						<!-- END WIDGET PHOTO SLIDE -->
+					</div>
+                    
+                    <!-- UPLOAD HERE -->
+					<div class="col-md-9">
+                    	
+                    	<div class="row">
+   							<div class="" style="font-size:18px; text-align:center; font-weight:bold"><p>Welcome <?php echo Session::get('artist_name'); ?> </p></div>
+          					<div class="">
+              					<div class="panel panel-primary reviews-container text-center">
+                  				<i class="fa fa-shopping-cart fa-2x"></i>
+                  					<div>Total Products</div>
+                  					<div></div>
+              					</div>
+          					</div>
+    					</div>
+                        
+                    
+                    	<div class="row">
+          					<div class="">
+              					<div class="panel panel-primary reviews-container text-center">
+									<p style="color:green;"><?php echo Session::get('status'); ?></p>
+              						<p style="color:red;"><?php echo Session::get('img_error'); ?></p>
+						
+                        
+                       <!-- FORM UPLOAD -->
+					
+						<?php echo Form::open(array('url'=>'', 'class'=>'form ')); ?>
+
+						
+
+						
+                           <section class="form-group">
+							<label>CATEGORY TYPE<sup>*</sup></label>
+							<?php echo Form::select('art_categorytype', $categorytype, Input::old('art_categorytype'), array('required'=>'required', 'id'=>'art_categorytype', 'class'=>'form-control')); ?>
+
+                            </section>
+                            
+                            <p id="loader" style="display:none;" >please wait...</p>
+                            
+                             <section class="form-group" id="art_category" style="display:none;">
+							<label>ART CATEGORIES<sup>*</sup></label>
+							<?php echo Form::select('art_category', array(), 'None', array('required'=>'required', 'class'=>'form-control')); ?>
+
+                            </section>
+                            
+                            <section class="form-group">
+                            <label>ART SUB-CATEGORIES<sup>*</sup></label>
+							<?php echo Form::text('lastname', Input::old('lastname'), array('placeholder'=>'Last Name','required'=>'required', 'class'=>'form-control')); ?>
+
+                            </section>
+                            
+                            <section class="form-group">
+                            <label>Customer Name<sup>*</sup></label>
+							<?php echo Form::text('customer_name', Input::old('customer_name'), array('placeholder'=>'Customer Name','required'=>'required', 'class'=>'form-control')); ?>
+
+                            </section>
+                            
+                            <section class="form-group">
+                            <label>Email Address <sup>*</sup></label>
+							<?php echo Form::email('email', Input::old('email'), array('placeholder'=>'Email address','required'=>'required', 'class'=>'form-control')); ?>
+
+                            </section>
+							
+							<section class="form-group">
+                            <label>Password <sup>*</sup></label>
+							<?php echo Form::password('password', array('placeholder'=>'Password','required'=>'required', 'class'=>'form-control')); ?>
+
+                            </section>					
+                            
+                            <section class="form-group">
+                            <label>ARTWORK DESCRIPTION <sup>*</sup></label>
+							<?php echo Form::textarea('art_description', '', array('maxlength'=>'350','placeholder'=>'Enter Art Description...', 'class'=>'form-control')); ?>
+
+                            </section>
+                            
+                                                      
+                            <center>
+                               <?php echo Form::submit('Register', array('class'=>'btn btn-13 btn-submit text-uppercase')); ?>
+
+                            </center>
+
+						
+                        <?php echo Form::close(); ?>
+
+
+					
+
+					<!-- FORM UPLOAD -->
+                    		</div>
+						</div>
+					</div>
+                    <!-- END UPLOAD HERE -->
+
+					
+				
+                
+                	</div>
+				</div>
+			</div>
+		</section>
+		<!-- UPLOAD -->
+
+		
+<!-- FOOTER -->
+            <footer class="dark">
+			<div class="footer-b ">
+				<div class="container">
+					<div class="row">
+						
+						<div class="col-md-6 col-md-push-6 payment-icon">
+							<a href="#"><img src="<?php echo URL::asset('images/logo-mine.png'); ?>" alt=""></a>
+						</div>
+                        
+
+						<div class="col-md-6 col-md-pull-6 copyright ">
+                            <p>
+								&copy; 2018 <a href="http://yarth.com/" title="MegaDrupal">Yarth</a> - All Rights Reserved.
+							</p>
+                        </div>
+
+					</div>
+				</div>
+			</div>
+		</footer>
+		<!-- END FOOTER -->
+
+		<!-- SCROLL TOP -->
+		<div id="scroll-top" class="_2">Scroll Top</div>
+		<!-- END SCROLL TOP -->
+
+	</div>
+
+		<!-- SCROLL TOP -->
+		<div id="scroll-top" class="_2">Scroll Top</div>
+		<!-- END SCROLL TOP -->
+
+	</div>
+    
+    <script type="text/javascript">
+ var cloud = {
+	 get:function(ctid){
+		 $("#loader").css({display:"block"});
+		 $("#art_category").css("display","none").find("select").empty();
+		  $.ajax({
+			  type:"GET",
+			  url:"categories",
+			  data:{
+				  ctid:ctid
+				  },
+				success: function(res){
+					 $("#loader").css({display:"none"});
+					 var contents = [];
+					for (var a in res)
+					{
+						var option = $("<option></option>");
+						option.attr({value:res[a].cid});
+						option.html(res[a].cat_name);
+						contents.push(option);
+					}
+					$("#art_category").css("display","block").find("select").append(contents);
+					},
+					error:function(res){
+					$("#loader").css({display:"none"});
+					console.log(res);
+					}
+			  });
+		 }
+	 }
+	 
+
+$("#art_categorytype").change(function(){
+	
+	//alert('hello');
+	cloud.get(this.value);
+	});
+
+</script>
+
+    <?php $__env->stopSection(); ?>
+<?php echo $__env->make('layouts.upload-main', array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>
